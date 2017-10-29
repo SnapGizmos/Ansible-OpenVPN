@@ -1,0 +1,8 @@
+---
+# This playbook installs OpenVPN and stuff.. 
+# See hosts-example for specifying users and hosts
+ - name: Enable epel-release repo and install OpenVPN, EasyRSA2, and firewalld
+   hosts: vpn
+
+   roles:
+     - common
