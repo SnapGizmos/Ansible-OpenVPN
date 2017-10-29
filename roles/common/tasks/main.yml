@@ -1,17 +1,16 @@
 ---
-# This playbook installs OpenVPN, Git, and firewalld. 
+# This playbook installs OpenVPN, Easy RSA2. 
 # Then upgrades all installed packages.
  - hosts: vpn
    tasks:
    - name: Enable epel-release repo
      yum: name=epel-release state=present
 
-   - name: Install firewalld, OpenVPN, easy-rsa
+   - name: Installing OpenVPN, Easy-RSA2
      yum: name="{{ item }}" state=present
      with_items:
      - openvpn
      - easy-rsa
-     - firewalld
 
    - name: Upgrade all installed packages
      yum: name="*" state=latest
