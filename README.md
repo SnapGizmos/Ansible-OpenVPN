@@ -18,7 +18,7 @@ See files/build-server-keys.sh for example to build keys/certs for server and cl
 Dependencies
 ------------
 
-N/A
+Ansible 2.4
 
 Example Playbook
 ----------------
