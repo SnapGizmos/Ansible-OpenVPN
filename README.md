@@ -1,7 +1,7 @@
-Ansible installation, configuration, and management of OpenVPN
+SnapGizmos Ansible-OpenVPN
 =========
 
-A brief description of the role goes here.
+Enables epel-release repo. Installs OpenVPN and Easy RSA via yum.
 
 Requirements
 ------------
