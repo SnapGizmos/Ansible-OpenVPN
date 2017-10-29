@@ -1,0 +1,39 @@
+---
+# This playbook easy-rsa2.yml copies files to /etc/openvpn/easy-rsa
+ - hosts: vpn
+   tasks:
+   - name: Create directory /etc/openvpn/easy-rsa/keys
+     shell: mkdir -p /etc/openvpn/easy-rsa/keys
+     args:
+       executable: /bin/bash
+   - name: Copy files from /usr/share/easy-rsa/2.0 to /etc/openvpn/easy-rsa
+     shell: cp -rf /usr/share/easy-rsa/2.0/* /etc/openvpn/easy-rsa
+     args:
+       executable: /bin/bash
+   - name: Copy /etc/openvpn/easy-rsa/openssl-1.0.0.cnf to /etc/openvpn/easy-rsa/openssl.cnf
+     shell: cp /etc/openvpn/easy-rsa/openssl-1.0.0.cnf /etc/openvpn/easy-rsa/openssl.cnf
+     args:
+       executable: /bin/bash
+# Create backup and upload custom build-key script
+   - name: copy custom build-key and create backup of original
+     copy:
+       src: "{{ role_path }}/files/build-key"
+       dest: /etc/openvpn/easy-rsa/build-key
+       owner: root
+       group: root
+       mode: 0755
+       backup: yes
+     register: backupinfo
+   - debug: 
+       var: backupinfo.backup_file
+   - name: Copy EasyRSA2 var file and creates backup of original
+     copy:
+     src: "{{ role_path }}/files/easyrsa2.vars"
+     dest: /etc/openvpn/easy-rsa/vars
+     owner: root
+     group: root
+     mode: 0644
+     backup: yes
+    register: varsinfo
+  - debug:
+      var: varsinfo.backup_file
