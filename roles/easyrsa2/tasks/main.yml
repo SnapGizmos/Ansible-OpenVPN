@@ -21,7 +21,7 @@
        group: root
        mode: 0755
        backup: yes
-       register: backupinfo
+     register: backupinfo
    - debug: 
        var: backupinfo.backup_file
    - name: Copy EasyRSA2 var file and creates backup of original
@@ -32,6 +32,6 @@
       group: root
       mode: 0644
       backup: yes
-      register: varsinfo
+     register: varsinfo
    - debug:
       var: varsinfo.backup_file
