@@ -1,8 +1,6 @@
 ---
 # This playbook installs OpenVPN, Easy RSA2. 
 # Then upgrades all installed packages.
- - hosts: vpn
-   tasks:
    - name: Enable epel-release repo
      yum: name=epel-release state=present
 
