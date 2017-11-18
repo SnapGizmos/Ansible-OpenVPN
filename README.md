@@ -13,7 +13,7 @@ Role Variables
 
 Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
 See files/build-server-keys.sh for example to build keys/certs for server and clients
-
+See hosts-example for how to setup your /etc/ansible/hosts file.
 
 Dependencies
 ------------
