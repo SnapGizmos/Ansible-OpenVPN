@@ -16,7 +16,7 @@ CentOS 7 - Playbooks will install necessary requirements
 
 2nd - ansible-playbook site.yml
 
-3rd - ansible-playbook client-key.yml --extra-vars "clientkey=JohnDoe" - Will create client keys ##.pem, JohnDoe.csr & JohnDoe.key
+3rd - ansible-playbook client-key.yml --extra-vars "clientkey=JohnDoe" - Will create client keys ##.pem, JohnDoe.csr & JohnDoe.key & JohnDoe.crt
 
 
 
