@@ -4,8 +4,7 @@ SnapGizmos Ansible-OpenVPN
 Enables epel-release repo. Installs OpenVPN and Easy RSA via yum.
 
 TODO - Firewall configuration. Enable / start OpenVPN as service. Store client keys in Ansible Vault. 
-Tweak client key creation process.
-Create playbook to manage keys.
+Create playbook(s) to manage keys.
 
 Requirements
 ------------
