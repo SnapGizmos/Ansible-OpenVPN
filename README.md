@@ -10,7 +10,9 @@ Create playbook to manage keys.
 Requirements
 ------------
 
-CentOS 7 - Playbooks will install necessary requirements
+CentOS 7 
+
+- Playbooks will install necessary requirements
 
 1st - See variables section below.
 
@@ -18,6 +20,7 @@ CentOS 7 - Playbooks will install necessary requirements
 
 3rd - ansible-playbook client-key.yml --extra-vars "clientkey=JohnDoe" 
 - Will create client keys ##.pem, JohnDoe.csr & JohnDoe.key & JohnDoe.crt in /etc/openvpn/easy-rsa/keys/
+
 ##.pem is identical to JohnDoe.crt or whatever value is specified for clientkey
 
 
