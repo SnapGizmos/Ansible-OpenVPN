@@ -1,0 +1,17 @@
+---
+# This playbook creates OpenVPN client keys. 
+# Example use - ansible-playbook client-key.yml --extra-vars "clientkey=JohnDoe"
+ - hosts: vpn
+   tasks:
+
+   - name: Loading config options from /etc/openvpn/easy-rsa/vars
+     shell: source ./vars
+     args:
+       chdir: /etc/openvpn/easy-rsa/
+       executable: /bin/bash
+
+   - name: Removing any existing keys in /etc/openvpn/easy-rsa/keys
+     command: ./build-key '{{ clientkey }}'
+     args:
+       chdir: /etc/openvpn/easy-rsa
+

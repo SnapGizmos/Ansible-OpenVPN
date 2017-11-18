@@ -1,0 +1,28 @@
+---
+# This playbook creates OpenVPN Server keys. 
+   - name: Loading config options from /etc/openvpn/easy-rsa/vars
+     shell: source ./vars
+     args:
+       chdir: /etc/openvpn/easy-rsa/
+       executable: /bin/bash
+
+   - name: Removing any existing keys in /etc/openvpn/easy-rsa/keys
+     command: ./clean-all
+     args:
+       chdir: /etc/openvpn/easy-rsa
+
+   - name: Build Server CA key with no password 
+     command: ./build-ca --batch nopass
+     args:
+       chdir: /etc/openvpn/easy-rsa/
+
+   - name: Build Server key
+     command: ./build-key-server --batch VPNserver
+     args:
+       chdir: /etc/openvpn/easy-rsa/
+
+   - name: Build DH key (this will take a moment)
+     command: ./build-dh
+     args:
+       chdir: /etc/openvpn/easy-rsa
+

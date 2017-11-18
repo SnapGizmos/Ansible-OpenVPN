@@ -3,22 +3,31 @@ SnapGizmos Ansible-OpenVPN
 
 Enables epel-release repo. Installs OpenVPN and Easy RSA via yum.
 
-TODO - Firewall configuration. Make server and client keys. Enable / start OpenVPN as service.
+TODO - Firewall configuration. Enable / start OpenVPN as service. Store client keys in Ansible Vault. 
+Tweak client key creation process.
+
 
 Requirements
 ------------
 
 CentOS 7 - Playbooks will install necessary requirements
 
+1st - See variables section below.
+
+2nd - ansible-playbook site.yml
+
+3rd - ansible-playbook client-key.yml --extra-vars "clientkey=JohnDoe" - Will create client keys ##.pem, JohnDoe.csr & JohnDoe.key
+
+
+
 Role Variables
 --------------
 
+roles/serverkey/tasks/main.yml creates keys necessary for server to run.
+Currently they're stored in /etc/openvpn/easy-rsa/keys
+
+
 Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
-
-
-See files/build-server-keys.sh for example to build keys/certs for server and clients
-
--Playbooks yet to be created to automate this.
 
 Edit roles/common/files/server.conf to adjust OpenVPN Server configuration
 
