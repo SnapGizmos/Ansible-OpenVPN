@@ -28,17 +28,15 @@ Role Variables
 roles/serverkey/tasks/main.yml creates keys necessary for server to run.
 Currently they're stored in /etc/openvpn/easy-rsa/keys
 
+- Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
 
-Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
+- Edit roles/common/files/server.conf to adjust OpenVPN Server configuration
 
-Edit roles/common/files/server.conf to adjust OpenVPN Server configuration
+- See hosts-example for how to setup your /etc/ansible/hosts file.
 
-
-See hosts-example for how to setup your /etc/ansible/hosts file.
-
--Add user centos
-
--Edit /etc/sudoers to allow user centos to sudo access without password
+- Add user centos
+- Create ssh key for user centos - this allows Ansible to login without password
+- Edit /etc/sudoers to allow user centos sudo access without password
 
 Dependencies
 ------------
