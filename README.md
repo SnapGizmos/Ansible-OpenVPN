@@ -3,17 +3,24 @@ SnapGizmos Ansible-OpenVPN
 
 Enables epel-release repo. Installs OpenVPN and Easy RSA via yum.
 
+TODO - Firewall configuration. Make server and client keys. Enable / start OpenVPN as service.
+
 Requirements
 ------------
 
-CentOS 7 and an active internet connection. :) SSH recommended but not necessary for physical access.
+CentOS 7 - Playbooks will install necessary requirements
 
 Role Variables
 --------------
 
 Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
 See files/build-server-keys.sh for example to build keys/certs for server and clients
+
+Edit roles/common/files/server.conf to adjust OpenVPN Server configuration
+
 See hosts-example for how to setup your /etc/ansible/hosts file.
+-Add user centos
+-Edit /etc/sudoers to allow user centos to sudo access without password
 
 Dependencies
 ------------
