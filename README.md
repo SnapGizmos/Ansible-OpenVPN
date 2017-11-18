@@ -15,13 +15,18 @@ Role Variables
 
 Edit roles/easyrsa2/files/easyrsa2.vars to suit your needs
 
+
 See files/build-server-keys.sh for example to build keys/certs for server and clients
+
 -Playbooks yet to be created to automate this.
 
 Edit roles/common/files/server.conf to adjust OpenVPN Server configuration
 
+
 See hosts-example for how to setup your /etc/ansible/hosts file.
+
 -Add user centos
+
 -Edit /etc/sudoers to allow user centos to sudo access without password
 
 Dependencies
